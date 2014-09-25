@@ -295,9 +295,6 @@ img {
           <b:widget id="Blog1" locked="true" title="Blog Posts" type="Blog">
             <b:includable id="main" var="top">
               <b:if cond="data:mobile == &quot;false&quot;">
-                <script type="text/javascript">
-var postCount=0;
-</script>
                 <!-- posts -->
                 <div class="blog-posts hfeed">
                   <b:include data="top" name="status-message"/>
@@ -305,12 +302,12 @@ var postCount=0;
                   <b:loop values="data:posts" var="post">
                     <b:if cond="data:post.isDateStart">
                       <b:if cond="data:post.isFirstPost == &quot;false&quot;">
-            &lt;/div&gt;&lt;/div&gt;
-          </b:if>
+                        &lt;/div&gt;&lt;/div&gt;
+                      </b:if>
                     </b:if>
                     <b:if cond="data:post.isDateStart">
-          &lt;div class="date-outer"&gt;
-        </b:if>
+                      &lt;div class="date-outer"&gt;
+                    </b:if>
                     <b:if cond="data:post.dateHeader">
                       <h2 class="date-header">
                         <span>
@@ -319,8 +316,8 @@ var postCount=0;
                       </h2>
                     </b:if>
                     <b:if cond="data:post.isDateStart">
-          &lt;div class="date-posts"&gt;
-        </b:if>
+                      &lt;div class="date-posts"&gt;
+                    </b:if>
                     <div expr:id="&quot;postfirst&quot; + data:post.id">
                       <div class="post-outer">
                         <b:include data="post" name="post"/>
@@ -353,8 +350,8 @@ var postCount=0;
                     </b:if>
                   </b:loop>
                   <b:if cond="data:numPosts != 0">
-        &lt;/div&gt;&lt;/div&gt;
-      </b:if>
+                    &lt;/div&gt;&lt;/div&gt;
+                  </b:if>
                   <data:adEnd/>
                 </div>
                 <!-- navigation -->
@@ -364,14 +361,14 @@ var postCount=0;
                 <b:if cond="data:top.showStars">
                   <script src="//www.google.com/jsapi" type="text/javascript"/>
                   <script type="text/javascript">
-        google.load("annotations", "1", {"locale": "<data:top.languageCode/>"});
-        function initialize() {
-          google.annotations.setApplicationId(<data:top.blogspotReviews/>);
-          google.annotations.createAll();
-          google.annotations.fetch();
-        }
-        google.setOnLoadCallback(initialize);
-      </script>
+                    google.load("annotations", "1", {"locale": "<data:top.languageCode/>"});
+                    function initialize() {
+                      google.annotations.setApplicationId(<data:top.blogspotReviews/>);
+                      google.annotations.createAll();
+                      google.annotations.fetch();
+                    }
+                    google.setOnLoadCallback(initialize);
+                  </script>
                 </b:if>
                 <b:else/>
                 <b:include name="mobile-main"/>
@@ -455,8 +452,8 @@ var postCount=0;
                 <data:post.friendConnectJs/>
                 <data:post.cmtfpIframe/>
                 <script type="text/javascript">
-      BLOG_CMT_createIframe('<data:post.appRpcRelayPath/>', '<data:post.communityId/>');
-    </script>
+                  BLOG_CMT_createIframe('<data:post.appRpcRelayPath/>', '<data:post.communityId/>');
+                </script>
               </div>
             </b:includable>
             <b:includable id="commentDeleteIcon" var="comment">
@@ -465,7 +462,7 @@ var postCount=0;
                   <div class="goog-toggle-button">
                     <div class="goog-inline-block comment-action-icon"/>
                   </div>
-                  <b:else/>
+                <b:else/>
                   <a class="comment-delete" expr:href="data:comment.deleteUrl" expr:title="data:top.deleteCommentMsg">
                     <img src="//www.blogger.com/img/icon_delete13.gif"/>
                   </a>
@@ -475,10 +472,11 @@ var postCount=0;
             <b:includable id="comment_count_picker" var="post">
               <b:if cond="data:post.commentSource == 1">
                 <span class="cmt_count_iframe_holder" expr:data-count="data:post.numComments" expr:data-onclick="data:post.addCommentOnclick" expr:data-post-url="data:post.url" expr:data-url="data:post.canonicalUrl">
-    </span>
-                <b:else/>
-                <a class="comment-link" expr:href="data:post.addCommentUrl" expr:onclick="data:post.addCommentOnclick"><data:post.commentLabelFull/>:
-    </a>
+                </span>
+              <b:else/>
+                <a class="comment-link" expr:href="data:post.addCommentUrl" expr:onclick="data:post.addCommentOnclick">
+                  <data:post.commentLabelFull/>:
+                </a>
               </b:if>
             </b:includable>
             <b:includable id="comment_picker" var="post">
@@ -498,22 +496,23 @@ var postCount=0;
                 <b:if cond="data:post.allowComments">
                   <h4>
                     <b:if cond="data:post.numComments == 1">
-          1 <data:commentLabel/>:
-        <b:else/>
-          <data:post.numComments/> <data:commentLabelPlural/>:
-        </b:if>
+                      1 <data:commentLabel/>:
+                    <b:else/>
+                      <data:post.numComments/> <data:commentLabelPlural/>:
+                    </b:if>
                   </h4>
                   <b:if cond="data:post.commentPagingRequired">
-                    <span class="paging-control-container"><a expr:class="data:post.oldLinkClass" expr:href="data:post.oldestLinkUrl"><data:post.oldestLinkText/></a>
-           
-          <a expr:class="data:post.oldLinkClass" expr:href="data:post.olderLinkUrl"><data:post.olderLinkText/></a>
-           
-          <data:post.commentRangeText/>
-           
-          <a expr:class="data:post.newLinkClass" expr:href="data:post.newerLinkUrl"><data:post.newerLinkText/></a>
-           
-          <a expr:class="data:post.newLinkClass" expr:href="data:post.newestLinkUrl"><data:post.newestLinkText/></a>
-        </span>
+                    <span class="paging-control-container">
+                      <a expr:class="data:post.oldLinkClass" expr:href="data:post.oldestLinkUrl"><data:post.oldestLinkText/></a>
+                       
+                      <a expr:class="data:post.oldLinkClass" expr:href="data:post.olderLinkUrl"><data:post.olderLinkText/></a>
+                       
+                      <data:post.commentRangeText/>
+                       
+                      <a expr:class="data:post.newLinkClass" expr:href="data:post.newerLinkUrl"><data:post.newerLinkText/></a>
+                       
+                      <a expr:class="data:post.newLinkClass" expr:href="data:post.newestLinkUrl"><data:post.newestLinkText/></a>
+                    </span>
                   </b:if>
                   <div expr:id="data:widget.instanceId + &quot;_comments-block-wrapper&quot;">
                     <dl expr:class="data:post.avatarIndentClass" id="comments-block">
@@ -558,22 +557,23 @@ var postCount=0;
                     </dl>
                   </div>
                   <b:if cond="data:post.commentPagingRequired">
-                    <span class="paging-control-container"><a expr:class="data:post.oldLinkClass" expr:href="data:post.oldestLinkUrl"><data:post.oldestLinkText/></a><a expr:class="data:post.oldLinkClass" expr:href="data:post.olderLinkUrl"><data:post.olderLinkText/></a>
-           
-          <data:post.commentRangeText/>
-           
-          <a expr:class="data:post.newLinkClass" expr:href="data:post.newerLinkUrl"><data:post.newerLinkText/></a>
-          <a expr:class="data:post.newLinkClass" expr:href="data:post.newestLinkUrl"><data:post.newestLinkText/></a>
-        </span>
+                    <span class="paging-control-container">
+                        <a expr:class="data:post.oldLinkClass" expr:href="data:post.oldestLinkUrl"><data:post.oldestLinkText/></a><a expr:class="data:post.oldLinkClass" expr:href="data:post.olderLinkUrl"><data:post.olderLinkText/></a>
+                       
+                      <data:post.commentRangeText/>
+                       
+                      <a expr:class="data:post.newLinkClass" expr:href="data:post.newerLinkUrl"><data:post.newerLinkText/></a>
+                      <a expr:class="data:post.newLinkClass" expr:href="data:post.newestLinkUrl"><data:post.newestLinkText/></a>
+                    </span>
                   </b:if>
                   <p class="comment-footer">
                     <b:if cond="data:post.embedCommentForm">
                       <b:if cond="data:post.allowNewComments">
                         <b:include data="post" name="comment-form"/>
-                        <b:else/>
+                      <b:else/>
                         <data:post.noNewCommentsText/>
                       </b:if>
-                      <b:else/>
+                    <b:else/>
                       <b:if cond="data:post.allowComments">
                         <a expr:href="data:post.addCommentUrl" expr:onclick="data:post.addCommentOnclick">
                           <data:postCommentMsg/>
@@ -585,7 +585,7 @@ var postCount=0;
                 <b:if cond="data:showCmtPopup">
                   <div id="comment-popup">
                     <iframe allowtransparency="true" frameborder="0" id="comment-actions" name="comment-actions" scrolling="no">
-        </iframe>
+                    </iframe>
                   </div>
                 </b:if>
                 <div id="backlinks-container">
@@ -673,7 +673,11 @@ var postCount=0;
                       <b:if cond="data:post.allowComments">
                         <b:if cond="data:post.numComments != 0">
                           <a class="comment-link" expr:href="data:post.addCommentUrl" expr:onclick="data:post.addCommentOnclick">
-                            <b:if cond="data:post.numComments == 1">1 <data:top.commentLabel/><b:else/><data:post.numComments/> <data:top.commentLabelPlural/></b:if>
+                            <b:if cond="data:post.numComments == 1">
+                              1 <data:top.commentLabel/>
+                            <b:else/>
+                              <data:post.numComments/> <data:top.commentLabelPlural/>
+                            </b:if>
                           </a>
                         </b:if>
                       </b:if>
@@ -799,7 +803,11 @@ var postCount=0;
                               <b:if cond="data:blog.pageType != &quot;static_page&quot;">
                                 <b:if cond="data:post.allowComments">
                                   <a class="comment-link" expr:href="data:post.addCommentUrl" expr:onclick="data:post.addCommentOnclick">
-                                    <b:if cond="data:post.numComments == 1">1 <data:top.commentLabel/><b:else/><data:post.numComments/> <data:top.commentLabelPlural/></b:if>
+                                    <b:if cond="data:post.numComments == 1">
+                                      1 <data:top.commentLabel/>
+                                    <b:else/>
+                                      <data:post.numComments/> <data:top.commentLabelPlural/>
+                                    </b:if>
                                   </a>
                                 </b:if>
                               </b:if>
@@ -875,10 +883,10 @@ var postCount=0;
                 <b:if cond="data:post.title">
                   <b:if cond="data:blog.pageType == &quot;index&quot;">
                     <style>
-        .post {
-        border-bottom:1px dotted #ccc;
-          }
-        </style>
+                      .post {
+                        border-bottom:1px dotted #ccc;
+                      }
+                    </style>
                     <h3 class="post-title entry-title" itemprop="name">
                       <b:if cond="data:post.link">
                         <a expr:href="data:post.link">
@@ -901,10 +909,10 @@ var postCount=0;
                   </b:if>
                   <b:if cond="data:blog.pageType == &quot;item&quot;">
                     <style>
-        .post {
-        border-bottom:1px dotted #ccc;
-          }
-        </style>
+                      .post {
+                        border-bottom:1px dotted #ccc;
+                      }
+                    </style>
                     <h3 class="post-title entry-title" itemprop="name">
                       <b:if cond="data:post.link">
                         <a expr:href="data:post.link">
@@ -927,28 +935,69 @@ var postCount=0;
                   </b:if>
                   <b:if cond="data:blog.pageType == &quot;static_page&quot;">
                     <!--
-        <h3 class='post-title entry-title' itemprop='name'>
-          <b:if cond='data:post.link'>
-            <a expr:href='data:post.link'><data:post.title/></a>
-          <b:else/>
-            <b:if cond='data:post.url'>
-              <b:if cond='data:blog.url != data:post.url'>
-                <a expr:href='data:post.url'><data:post.title/></a>
-              <b:else/>
-                <data:post.title/>
-              </b:if>
-            <b:else/>
-              <data:post.title/>
-            </b:if>
-          </b:if>
-        </h3>
-        -->
+                    <h3 class='post-title entry-title' itemprop='name'>
+                      <b:if cond='data:post.link'>
+                        <a expr:href='data:post.link'><data:post.title/></a>
+                      <b:else/>
+                        <b:if cond='data:post.url'>
+                          <b:if cond='data:blog.url != data:post.url'>
+                            <a expr:href='data:post.url'><data:post.title/></a>
+                          <b:else/>
+                            <data:post.title/>
+                          </b:if>
+                        <b:else/>
+                          <data:post.title/>
+                        </b:if>
+                      </b:if>
+                    </h3>
+                    -->
                   </b:if>
                 </b:if>
                 <div class="post-header">
                   <b:if cond="data:blog.pageType == &quot;item&quot;">
-                    <div class="post-header-line-1"><span class="post-author vcard"><b:if cond="data:top.showAuthor"><data:top.authorLabel/><b:if cond="data:post.authorProfileUrl"><span class="fn"><a expr:href="data:post.authorProfileUrl" itemprop="author" rel="author" title="author profile"><data:post.author/></a></span><b:else/><span class="fn"><data:post.author/></span></b:if></b:if></span> | <span class="post-timestamp"><b:if cond="data:top.showTimestamp"><data:top.timestampLabel/><b:if cond="data:post.url"><a class="timestamp-link" expr:href="data:post.url" itemprop="url" rel="bookmark" title="permanent link"><abbr class="published" expr:title="data:post.timestampISO8601" itemprop="datePublished"><data:post.timestamp/></abbr></a></b:if></b:if></span> | <span class="post-comment-link"><b:if cond="data:post.allowComments"><a class="comment-link" expr:href="data:post.addCommentUrl" expr:onclick="data:post.addCommentOnclick"><b:if cond="data:post.numComments == 1">1 <data:top.commentLabel/><b:else/><data:post.numComments/> <data:top.commentLabelPlural/></b:if></a></b:if></span>
-    </div>
+                    <div class="post-header-line-1">
+                      <span class="post-author vcard">
+                        <b:if cond="data:top.showAuthor">
+                          <data:top.authorLabel/>
+                          <b:if cond="data:post.authorProfileUrl">
+                            <span class="fn">
+                              <a expr:href="data:post.authorProfileUrl" itemprop="author" rel="author" title="author profile">
+                                <data:post.author/>
+                              </a>
+                            </span>
+                          <b:else/>
+                            <span class="fn">
+                              <data:post.author/>
+                            </span>
+                          </b:if>
+                        </b:if>
+                      </span>
+                      |
+                      <span class="post-timestamp">
+                        <b:if cond="data:top.showTimestamp">
+                          <data:top.timestampLabel/>
+                          <b:if cond="data:post.url">
+                            <a class="timestamp-link" expr:href="data:post.url" itemprop="url" rel="bookmark" title="permanent link">
+                              <abbr class="published" expr:title="data:post.timestampISO8601" itemprop="datePublished">
+                                <data:post.timestamp/>
+                              </abbr>
+                            </a>
+                          </b:if>
+                        </b:if>
+                      </span>
+                      |
+                      <span class="post-comment-link">
+                        <b:if cond="data:post.allowComments">
+                          <a class="comment-link" expr:href="data:post.addCommentUrl" expr:onclick="data:post.addCommentOnclick">
+                            <b:if cond="data:post.numComments == 1">
+                              1 <data:top.commentLabel/>
+                            <b:else/>
+                              <data:post.numComments/> <data:top.commentLabelPlural/>
+                            </b:if>
+                          </a>
+                        </b:if>
+                      </span>
+                    </div>
                   </b:if>
                 </div>
                 <div class="post-body entry-content" expr:id="&quot;post-body-&quot; + data:post.id" itemprop="articleBody">
@@ -1140,197 +1189,197 @@ var postCount=0;
                 <data:post.friendConnectJs/>
                 <data:post.cmtfpIframe/>
                 <script type="text/javascript">
-      BLOG_CMT_createIframe('<data:post.appRpcRelayPath/>', '<data:post.communityId/>');
-    </script>
+                  BLOG_CMT_createIframe('<data:post.appRpcRelayPath/>', '<data:post.communityId/>');
+                </script>
               </div>
             </b:includable>
             <b:includable id="threaded_comment_js" var="post">
               <script async="async" expr:src="data:post.commentSrc" type="text/javascript"/>
               <script type="text/javascript">
-    (function() {
-      var items = <data:post.commentJso/>;
-      var msgs = <data:post.commentMsgs/>;
-      var config = <data:post.commentConfig/>;
+                (function() {
+                  var items = <data:post.commentJso/>;
+                  var msgs = <data:post.commentMsgs/>;
+                  var config = <data:post.commentConfig/>;
 
-// <![CDATA[
-      var cursor = null;
-      if (items && items.length > 0) {
-        cursor = parseInt(items[items.length - 1].timestamp) + 1;
-      }
+                // <![CDATA[
+                  var cursor = null;
+                  if (items && items.length > 0) {
+                    cursor = parseInt(items[items.length - 1].timestamp) + 1;
+                  }
 
-      var bodyFromEntry = function(entry) {
-        if (entry.gd$extendedProperty) {
-          for (var k in entry.gd$extendedProperty) {
-            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
-              return '<span class="deleted-comment">' + entry.content.$t + '</span>';
-            }
-          }
-        }
-        return entry.content.$t;
-      }
+                  var bodyFromEntry = function(entry) {
+                    if (entry.gd$extendedProperty) {
+                      for (var k in entry.gd$extendedProperty) {
+                        if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+                          return '<span class="deleted-comment">' + entry.content.$t + '</span>';
+                        }
+                      }
+                    }
+                    return entry.content.$t;
+                  }
 
-      var parse = function(data) {
-        cursor = null;
-        var comments = [];
-        if (data && data.feed && data.feed.entry) {
-          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
-            var comment = {};
-            // comment ID, parsed out of the original id format
-            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
-            comment.id = id ? id[2] : null;
-            comment.body = bodyFromEntry(entry);
-            comment.timestamp = Date.parse(entry.published.$t) + '';
-            if (entry.author && entry.author.constructor === Array) {
-              var auth = entry.author[0];
-              if (auth) {
-                comment.author = {
-                  name: (auth.name ? auth.name.$t : undefined),
-                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
-                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
-                };
-              }
-            }
-            if (entry.link) {
-              if (entry.link[2]) {
-                comment.link = comment.permalink = entry.link[2].href;
-              }
-              if (entry.link[3]) {
-                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
-                if (pid && pid[1]) {
-                  comment.parentId = pid[1];
-                }
-              }
-            }
-            comment.deleteclass = 'item-control blog-admin';
-            if (entry.gd$extendedProperty) {
-              for (var k in entry.gd$extendedProperty) {
-                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
-                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
-                }
-              }
-            }
-            comments.push(comment);
-          }
-        }
-        return comments;
-      };
+                  var parse = function(data) {
+                    cursor = null;
+                    var comments = [];
+                    if (data && data.feed && data.feed.entry) {
+                      for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+                        var comment = {};
+                        // comment ID, parsed out of the original id format
+                        var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+                        comment.id = id ? id[2] : null;
+                        comment.body = bodyFromEntry(entry);
+                        comment.timestamp = Date.parse(entry.published.$t) + '';
+                        if (entry.author && entry.author.constructor === Array) {
+                          var auth = entry.author[0];
+                          if (auth) {
+                            comment.author = {
+                              name: (auth.name ? auth.name.$t : undefined),
+                              profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                              avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                            };
+                          }
+                        }
+                        if (entry.link) {
+                          if (entry.link[2]) {
+                            comment.link = comment.permalink = entry.link[2].href;
+                          }
+                          if (entry.link[3]) {
+                            var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                            if (pid && pid[1]) {
+                              comment.parentId = pid[1];
+                            }
+                          }
+                        }
+                        comment.deleteclass = 'item-control blog-admin';
+                        if (entry.gd$extendedProperty) {
+                          for (var k in entry.gd$extendedProperty) {
+                            if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                              comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                            }
+                          }
+                        }
+                        comments.push(comment);
+                      }
+                    }
+                    return comments;
+                  };
 
-      var paginator = function(callback) {
-        if (hasMore()) {
-          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
-          if (cursor) {
-            url += '&published-min=' + new Date(cursor).toISOString();
-          }
-          window.bloggercomments = function(data) {
-            var parsed = parse(data);
-            cursor = parsed.length < 50 ? null
-                : parseInt(parsed[parsed.length - 1].timestamp) + 1
-            callback(parsed);
-            window.bloggercomments = null;
-          }
-          url += '&callback=bloggercomments';
-          var script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.src = url;
-          document.getElementsByTagName('head')[0].appendChild(script);
-        }
-      };
-      var hasMore = function() {
-        return !!cursor;
-      };
-      var getMeta = function(key, comment) {
-        if ('iswriter' == key) {
-          var matches = !!comment.author
-              && comment.author.name == config.authorName
-              && comment.author.profileUrl == config.authorUrl;
-          return matches ? 'true' : '';
-        } else if ('deletelink' == key) {
-          return config.baseUri + '/delete-comment.g?blogID='
-               + config.blogId + '&postID=' + comment.id;
-        } else if ('deleteclass' == key) {
-          return comment.deleteclass;
-        }
-        return '';
-      };
+                  var paginator = function(callback) {
+                    if (hasMore()) {
+                      var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+                      if (cursor) {
+                        url += '&published-min=' + new Date(cursor).toISOString();
+                      }
+                      window.bloggercomments = function(data) {
+                        var parsed = parse(data);
+                        cursor = parsed.length < 50 ? null
+                            : parseInt(parsed[parsed.length - 1].timestamp) + 1
+                        callback(parsed);
+                        window.bloggercomments = null;
+                      }
+                      url += '&callback=bloggercomments';
+                      var script = document.createElement('script');
+                      script.type = 'text/javascript';
+                      script.src = url;
+                      document.getElementsByTagName('head')[0].appendChild(script);
+                    }
+                  };
+                  var hasMore = function() {
+                    return !!cursor;
+                  };
+                  var getMeta = function(key, comment) {
+                    if ('iswriter' == key) {
+                      var matches = !!comment.author
+                          && comment.author.name == config.authorName
+                          && comment.author.profileUrl == config.authorUrl;
+                      return matches ? 'true' : '';
+                    } else if ('deletelink' == key) {
+                      return config.baseUri + '/delete-comment.g?blogID='
+                           + config.blogId + '&postID=' + comment.id;
+                    } else if ('deleteclass' == key) {
+                      return comment.deleteclass;
+                    }
+                    return '';
+                  };
 
-      var replybox = null;
-      var replyUrlParts = null;
-      var replyParent = undefined;
+                  var replybox = null;
+                  var replyUrlParts = null;
+                  var replyParent = undefined;
 
-      var onReply = function(commentId, domId) {
-        if (replybox == null) {
-          // lazily cache replybox, and adjust to suit this style:
-          replybox = document.getElementById('comment-editor');
-          if (replybox != null) {
-            replybox.height = '250px';
-            replybox.style.display = 'block';
-            replyUrlParts = replybox.src.split('#');
-          }
-        }
-        if (replybox && (commentId !== replyParent)) {
-          document.getElementById(domId).insertBefore(replybox, null);
-          replybox.src = replyUrlParts[0]
-              + (commentId ? '&parentID=' + commentId : '')
-              + '#' + replyUrlParts[1];
-          replyParent = commentId;
-        }
-      };
+                  var onReply = function(commentId, domId) {
+                    if (replybox == null) {
+                      // lazily cache replybox, and adjust to suit this style:
+                      replybox = document.getElementById('comment-editor');
+                      if (replybox != null) {
+                        replybox.height = '250px';
+                        replybox.style.display = 'block';
+                        replyUrlParts = replybox.src.split('#');
+                      }
+                    }
+                    if (replybox && (commentId !== replyParent)) {
+                      document.getElementById(domId).insertBefore(replybox, null);
+                      replybox.src = replyUrlParts[0]
+                          + (commentId ? '&parentID=' + commentId : '')
+                          + '#' + replyUrlParts[1];
+                      replyParent = commentId;
+                    }
+                  };
 
-      var hash = (window.location.hash || '#').substring(1);
-      var startThread, targetComment;
-      if (/^comment-form_/.test(hash)) {
-        startThread = hash.substring('comment-form_'.length);
-      } else if (/^c[0-9]+$/.test(hash)) {
-        targetComment = hash.substring(1);
-      }
+                  var hash = (window.location.hash || '#').substring(1);
+                  var startThread, targetComment;
+                  if (/^comment-form_/.test(hash)) {
+                    startThread = hash.substring('comment-form_'.length);
+                  } else if (/^c[0-9]+$/.test(hash)) {
+                    targetComment = hash.substring(1);
+                  }
 
-      // Configure commenting API:
-      var configJso = {
-        'maxDepth': config.maxThreadDepth
-      };
-      var provider = {
-        'id': config.postId,
-        'data': items,
-        'loadNext': paginator,
-        'hasMore': hasMore,
-        'getMeta': getMeta,
-        'onReply': onReply,
-        'rendered': true,
-        'initComment': targetComment,
-        'initReplyThread': startThread,
-        'config': configJso,
-        'messages': msgs
-      };
+                  // Configure commenting API:
+                  var configJso = {
+                    'maxDepth': config.maxThreadDepth
+                  };
+                  var provider = {
+                    'id': config.postId,
+                    'data': items,
+                    'loadNext': paginator,
+                    'hasMore': hasMore,
+                    'getMeta': getMeta,
+                    'onReply': onReply,
+                    'rendered': true,
+                    'initComment': targetComment,
+                    'initReplyThread': startThread,
+                    'config': configJso,
+                    'messages': msgs
+                  };
 
-      var render = function() {
-        if (window.goog && window.goog.comments) {
-          var holder = document.getElementById('comment-holder');
-          window.goog.comments.render(holder, provider);
-        }
-      };
+                  var render = function() {
+                    if (window.goog && window.goog.comments) {
+                      var holder = document.getElementById('comment-holder');
+                      window.goog.comments.render(holder, provider);
+                    }
+                  };
 
-      // render now, or queue to render when library loads:
-      if (window.goog && window.goog.comments) {
-        render();
-      } else {
-        window.goog = window.goog || {};
-        window.goog.comments = window.goog.comments || {};
-        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
-        window.goog.comments.loadQueue.push(render);
-      }
-    })();
-// ]]>
-  </script>
+                  // render now, or queue to render when library loads:
+                  if (window.goog && window.goog.comments) {
+                    render();
+                  } else {
+                    window.goog = window.goog || {};
+                    window.goog.comments = window.goog.comments || {};
+                    window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+                    window.goog.comments.loadQueue.push(render);
+                  }
+                })();
+                // ]]>
+              </script>
             </b:includable>
             <b:includable id="threaded_comments" var="post">
               <div class="comments" id="comments">
                 <a name="comments"/>
                 <h4>
                   <b:if cond="data:post.numComments == 1">
-        1 <data:commentLabel/>:
-      <b:else/>
-        <data:post.numComments/> <data:commentLabelPlural/>:
-      </b:if>
+                    1 <data:commentLabel/>:
+                  <b:else/>
+                    <data:post.numComments/> <data:commentLabelPlural/>:
+                  </b:if>
                 </h4>
                 <div class="comments-content">
                   <b:if cond="data:post.embedCommentForm">
@@ -1350,7 +1399,7 @@ var postCount=0;
                 <b:if cond="data:showCmtPopup">
                   <div id="comment-popup">
                     <iframe allowtransparency="true" frameborder="0" id="comment-actions" name="comment-actions" scrolling="no">
-        </iframe>
+                    </iframe>
                   </div>
                 </b:if>
                 <div id="backlinks-container">
@@ -1369,13 +1418,15 @@ var postCount=0;
       <div class="clear"> </div>
     </div>
     <!-- end content-wrapper -->
-    <div id="footer">
 
-            &amp;copy; <script type="text/javascript">var creditsyear = new Date();document.write(creditsyear.getFullYear());</script> <a expr:href="data:blog.homepageUrl" expr:title="data:blog.title"><data:blog.title/></a>.
-            All Rights Reserved. <a href="http://themecobra.com/themes/simplydelicious/" target="_blank" title="Download this Wordpress theme">Simply Delicious</a> is a <a href="http://themecobra.com" target="_blank" title="See all themes by ThemeCobra">ThemeCobra</a> theme by <a href="http://overdo5e.com" target="_blank" title="Visit the OVERDO5E website">OVERDO<span class="OD5">5</span>E</a><br/>
-Bloggerized by <a href="http://www.freebloggertemplate.info/">Free Blogger Templates</a>
+    <div id="footer">
+      &amp;copy; <script type="text/javascript">var creditsyear = new Date();document.write(creditsyear.getFullYear());</script> <a expr:href="data:blog.homepageUrl" expr:title="data:blog.title"><data:blog.title/></a>.
+      All Rights Reserved. <a href="http://themecobra.com/themes/simplydelicious/" target="_blank" title="Download this Wordpress theme">Simply Delicious</a> is a <a href="http://themecobra.com" target="_blank" title="See all themes by ThemeCobra">ThemeCobra</a> theme by <a href="http://overdo5e.com" target="_blank" title="Visit the OVERDO5E website">OVERDO<span class="OD5">5</span>E</a><br/>
+      Bloggerized by <a href="http://www.freebloggertemplate.info/">Free Blogger Templates</a>
     </div>
     <!-- /#footer -->
     <b:include data="blog" name="google-analytics"/>
   </body>
 </html>
+<!-- vim: shiftwidth=2 softtabstop=2 tabstop=2 ft=html
+  -->
