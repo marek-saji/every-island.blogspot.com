@@ -196,6 +196,8 @@ img {
   height: 10em;
   min-width: 10em;
   margin: 0;
+  border: 0;
+  float: left;
 }
 
 .pageAbout p a {
