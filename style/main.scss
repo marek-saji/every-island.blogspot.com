@@ -1,0 +1,398 @@
+$fontSize: 1em;
+$lineHeight: 1.5em;
+$horizontalSpace: 1rem;
+$textWidth: 25em / 1em * 16px;
+$photoWidth: 800px;
+$sidebarGap: 3 * $horizontalSpace / 1rem * 16px;
+$sidebarWidth: 256px;
+$contentWidth: $textWidth + $photoWidth;
+$fullWidth: $contentWidth + $sidebarWidth;
+$pageHorizontalSpace: $horizontalSpace / 1rem * 16px;
+
+$enoughSpaceForPhotoColumn: $contentWidth + 2 * $pageHorizontalSpace;
+$enoughSpaceForSidebar:     $fullWidth + 2 * $pageHorizontalSpace;
+
+$textColour: #959595;
+$linkColour: #666;
+$legendColour: #666;
+
+$spacerColour: #ddd;
+$spacerMargin: $fontSize * 2;
+
+*
+{
+  box-sizing: inherit;
+}
+
+%clearfix
+{
+  &:after
+  {
+    content: ' ';
+    display: table;
+    clear: both;
+  }
+}
+
+html
+{
+  box-sizing: border-box;
+  
+  font-size: $fontSize;
+  line-height: $lineHeight / 1em * 1rem;
+  font-family: PT Serif, Georgia, serif;
+  color: $textColour;
+  padding: 0 $pageHorizontalSpace;
+}
+
+body
+{
+  margin: 0;
+  background-color: white;
+}
+
+a
+{
+  color: $linkColour;
+}
+
+
+/* ------- */
+
+// http://www.gridlover.net/app/
+// major second
+
+h1 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+h3 {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+h4 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+p, ul, ol, dl, pre, table, blockquote {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Sanitation */
+hr {
+  border: 1px solid;
+  margin: -1px 0;
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+b, strong, em, small, code {
+  line-height: 1;
+}
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+sub {
+  top: 0.4em;
+}
+
+
+/* ------- */
+
+
+img
+{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.skip-to-content
+{
+  padding-top: 1em;
+  height: 0;
+  
+  a
+  { 
+    overflow: hidden;
+    height: 0;
+    display: inline-block;
+    &:focus
+    {
+      height: auto;
+    }
+  }
+}
+
+.pageWrapper
+{
+  max-width: $photoWidth;
+  margin: 0 auto;
+}
+
+.pageChrome
+{
+  text-align: left;
+  font-size: 0.8em;
+}
+
+.pageAbout
+{
+  max-width: 40em;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.pageAbout a
+{
+  display: block;
+  min-width: 10em;
+}
+.pageAbout img
+{
+  width:  10em;
+  height: 10em;
+  min-width: 10em;
+  margin: 0;
+  border: 0;
+  float: left;
+}
+.pageAbout p a
+{
+  display: inline-block; 
+}
+
+.pageMenu 
+{
+  text-transform: uppercase;
+  text-align: center;
+}
+.pageMenu ul
+{
+  list-style: none;
+  padding: 0;
+}
+.pageMenu li
+{
+  margin: 0;
+  padding: 0 1em;
+  display: inline;
+}
+
+.pageContent
+{
+  overflow: auto;
+}
+
+.pageFooter
+{
+  margin-top: 2em;
+  font-size: 0.85em;
+  text-align: center;
+  margin-top: 3 * $lineHeight;
+}
+
+
+@media all and (min-width: $enoughSpaceForPhotoColumn)
+{
+  .pageWrapper
+  {
+    max-width: none;
+    width: $contentWidth;
+  }
+}
+@media all and (min-width: $enoughSpaceForSidebar)
+{
+  .pageWrapper
+  {
+    max-width: none;
+    width: $fullWidth;
+  }
+  
+  .pageChrome
+  {
+    float: right;
+    width: $sidebarWidth;
+    padding-left: $sidebarGap;
+    margin-top: $spacerMargin;
+  }
+  
+  .pageMenu
+  {
+    text-align: inherit;
+  }
+  .pageMenu li
+  {
+    display: block;
+  }
+  
+  .pageAbout
+  {
+    display: block;
+  }
+  .pageAbout img
+  {
+    float: none;
+    max-width: 100%;
+  }
+}
+
+/* ----- */
+
+.h-entry
+{
+  $spacerPlacement: top;
+  padding-#{$spacerPlacement}: $spacerMargin;
+  margin-#{ $spacerPlacement}: $spacerMargin;
+  border-#{ $spacerPlacement}: $spacerColour solid thin;
+}
+
+.e-content
+{
+  @extend %clearfix;
+}
+
+hr
+{
+  clear: both;
+  width: 100%;
+  border: $spacerColour solid;
+  border-width: thin 0 0 0;
+  margin: $lineHeight 0;
+}
+
+figure
+{
+  margin: 0;
+  margin-bottom: $lineHeight;
+  padding: 0;
+}
+
+dt
+{
+  display: inline;
+}
+dt:after
+{
+  content: ': ';
+}
+dd
+{
+  display: inline;
+  margin: 0;
+}
+dd:after
+{
+  content: '\A';
+  white-space: pre;
+}
+
+figure
+{
+  width: 100%;
+  max-width: $photoWidth;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media all and (min-width: $photoWidth)
+{
+  .figures
+  {
+    display: flex;
+    
+    figure
+    {
+      margin-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+@media all and (min-width: $enoughSpaceForPhotoColumn)
+{
+  .e-content
+  {
+    width: $textWidth;
+  }
+  
+  hr
+  {
+    width: $textWidth + $photoWidth;
+  }
+  
+  .figures,
+  figure
+  {
+    width: $photoWidth;
+    clear: right;
+    float: right;
+    margin-right: -1 * $photoWidth;
+    padding-left: $horizontalSpace;
+  }
+  
+  .longform
+  {
+    width: $textWidth + $photoWidth;
+  }
+}
+
+.h-entry .p-name
+{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.h-entry .dt-published
+{
+  color: #888;
+  font-size: 0.8em;
+}
+
+.h-entry footer
+{
+  margin-top: $lineHeight;
+  font-size: 1.125em;
+  text-transform: uppercase;
+}
+
+
+/* ------ */
+
+
+.e-content section
+{
+  clear: both;
+}
+
+
+/* ------ */
+
+
+/*
+.item-control,
+.icon-action
+{
+  display: inline;
+}
+*/
