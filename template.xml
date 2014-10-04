@@ -1313,7 +1313,7 @@ figure {
                           <data:post.title/>
                         <b:else/>
                           <b:if cond="data:post.url != data:blog.url">
-                            <a expr:href="data:post.url">
+                            <a expr:href="data:post.url + &quot;#content&quot;">
                               <data:post.title/>
                             </a>
                           <b:else/>
@@ -1327,7 +1327,7 @@ figure {
                   <b:if cond="data:top.showTimestamp">
                     <time class="dt-published" expr:datetime="data:post.timestampISO8601" itemprop="datePublished">
                       <b:if cond="data:post.url != data:blog.url">
-                        <a expr:href="data:post.url" itemprop="url" rel="bookmark" title="permanent link">
+                        <a expr:href="data:post.url + &quot;#content&quot;" itemprop="url" rel="bookmark" title="permanent link">
                           <data:post.date/>
                         </a>
                       <b:else/>
