@@ -456,28 +456,41 @@ figure {
                 <b:include name="image"/>
               <b:else/>
                 <b:if cond="data:imagePlacement == &quot;REPLACE&quot;">
-                  <b:include name="image"/>
+                  <b:include name="logo"/>
                 <b:else/>
-                  <b:include name="image"/>
+                  <b:include name="logo"/>
                   <b:include name="heading"/>
                 </b:if>
               </b:if>
             </b:if>
           </header>
         </b:includable>
-        <b:includable id="image">
-          <b:if cond="data:imagePlacement == &quot;REPLACE&quot;">
-            <img expr:alt="data:title"
-                 expr:src="data:sourceUrl"
-                 expr:height="data:height"
-                 expr:width="data:width"
-            />
-          <b:else/>
-            <img role="presentation"
-                 expr:src="data:sourceUrl"
-                 expr:height="data:height"
-                 expr:width="data:width"
-            />
+        <b:includable id="logo">
+          <b:if cond="data:sourceUrl">
+            <b:if cond="data:blog.url == data:blog.homepageUrl">
+              <b:include name="logoImage"/>
+            <b:else/>
+              <a expr:href="data:blog.homepageUrl">
+                <b:include name="logoImage"/>
+              </a>
+            </b:if>
+          </b:if>
+        </b:includable>
+        <b:includable id="logoImage">
+          <b:if cond="data:sourceUrl">
+            <b:if cond="data:imagePlacement == &quot;REPLACE&quot;">
+              <img expr:alt="data:title"
+                   expr:src="data:sourceUrl"
+                   expr:height="data:height"
+                   expr:width="data:width"
+              />
+            <b:else/>
+              <img role="presentation"
+                   expr:src="data:sourceUrl"
+                   expr:height="data:height"
+                   expr:width="data:width"
+              />
+            </b:if>
           </b:if>
         </b:includable>
         <b:includable id="heading">
@@ -1552,7 +1565,7 @@ figure {
 
       <span>
         ©2014
-        <a href="http://every-island.blogspot.hu/">Anna <abbr>M.</abbr></a>.
+        <a expr:href="data:blog.homepageUrl">Anna <abbr>M.</abbr></a>.
         All Rights Reserved.
       </span>
       <span>
