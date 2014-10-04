@@ -3,7 +3,7 @@ $lineHeight: 1.5em;
 $horizontalSpace: 1rem;
 $textWidth: 25em / 1em * 16px;
 $photoWidth: 800px;
-$sidebarGap: 3 * $horizontalSpace / 1rem * 16px;
+$columnGap: 3 * $horizontalSpace / 1rem * 16px;
 $sidebarWidth: 256px;
 $contentWidth: $textWidth + $photoWidth;
 $fullWidth: $contentWidth + $sidebarWidth;
@@ -268,7 +268,7 @@ img
   {
     float: right;
     width: $sidebarWidth;
-    padding-left: $sidebarGap;
+    padding-left: $columnGap;
     margin-top: $spacerMargin;
   }
   
@@ -383,7 +383,7 @@ figure
     clear: right;
     float: right;
     margin-right: -1 * $photoWidth;
-    padding-left: $horizontalSpace;
+    padding-left: $columnGap;
   }
   
   .longform

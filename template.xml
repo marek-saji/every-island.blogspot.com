@@ -311,7 +311,7 @@ figure {
     clear: right;
     float: right;
     margin-right: -800px;
-    padding-left: 1rem; }
+    padding-left: 48px; }
 
   .longform {
     width: 1200px; } }
