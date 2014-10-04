@@ -196,6 +196,10 @@ img {
   margin-top: 2em;
   border-top: #dddddd solid thin; }
 
+.e-content {
+  text-align: justify;
+  text-justify: newspaper; }
+
 hr {
   clear: both;
   width: 100%;
