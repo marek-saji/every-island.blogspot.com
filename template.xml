@@ -1341,19 +1341,29 @@ figure {
                           <data:post.title/>
                         </a>
                       <b:else/>
-                        <data:post.title/>
+                        <b:if cond="data:blog.pageType == &quot;item&quot;">
+                          <data:post.title/>
+                        <b:else/>
+                          <b:if cond="data:post.url != data:blog.url">
+                            <a expr:href="data:post.url">
+                              <data:post.title/>
+                            </a>
+                          <b:else/>
+                            <data:post.title/>
+                          </b:if>
+                        </b:if>
                       </b:if>
                     </h2>
                   </b:if>
                   <b:include data="post" name="postQuickEdit"/>
                   <b:if cond="data:top.showTimestamp">
                     <time class="dt-published" expr:datetime="data:post.timestampISO8601" itemprop="datePublished">
-                      <b:if cond="data:post.url">
+                      <b:if cond="data:post.url != data:blog.url">
                         <a expr:href="data:post.url" itemprop="url" rel="bookmark" title="permanent link">
                           <data:post.date/>
                         </a>
                       <b:else/>
-                        <data:top.date/>
+                        <data:post.date/>
                       </b:if>
                     </time>
                   </b:if>
