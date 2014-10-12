@@ -721,9 +721,9 @@ figure {
             </b:includable>
             <b:includable id="comments_label" var="post">
               <b:if cond="data:post.numComments == 1">
-                1 <data:commentLabel/>:
+                1 <data:commentLabel/>
               <b:else/>
-                <data:post.numComments/> <data:commentLabelPlural/>:
+                <data:post.numComments/> <data:commentLabelPlural/>
               </b:if>
             </b:includable>
             <b:includable id="comments_paging" var="post">
