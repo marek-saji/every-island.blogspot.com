@@ -200,6 +200,13 @@ img {
   text-align: justify;
   text-justify: newspaper; }
 
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase; }
+
 hr {
   clear: both;
   width: 100%;
