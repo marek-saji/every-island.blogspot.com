@@ -1363,7 +1363,7 @@ figure {
                   </b:if>
                 </div>
                 <footer>
-                  <b:if cond="data:blog.pageType == &quot;item&quot;">
+                  <b:if cond="data:blog.pageType != &quot;item&quot;">
                     <b:if cond="data:post.allowComments">
                       <a expr:href="data:post.addCommentUrl" expr:onclick="data:post.addCommentOnclick">
                         <b:include data="post" name="comments_label"/>
