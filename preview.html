@@ -77,7 +77,9 @@
             <figure>
               <img src="http://i.imgur.com/dgxV84D.png">
             </figure>
-            <img src="http://2.bp.blogspot.com/-8l3bsSFBfKY/VCrXRDLxUKI/AAAAAAAAAFc/gjNyOJfY4fw/s1600/reunion.png">
+            <a target=_blank href="https://www.google.com/maps/@-21.1306889,55.5264794,9z">
+              <img src="https://maps.googleapis.com/maps/api/staticmap?center=-21.2977586,55.3836571&zoom=9&format=png&sensor=false&size=640x480&maptype=roadmap&style=visibility:off&style=feature:road%7Celement:geometry.fill%7Cvisibility:on%7Ccolor:0xffffff&style=feature:water%7Celement:geometry.fill%7Cvisibility:on%7Cgamma:1%7Ccolor:0x8ab6bb&style=feature:landscape.natural.landcover%7Celement:geometry%7Cvisibility:on&style=feature:poi.park%7Celement:geometry%7Cvisibility:on%7Ccolor:0x99c379&style=feature:transit%7Celement:geometry%7Cvisibility:on" width=640 height=480>
+            </a>
             <h3>
               LA REUNION
             </h3>
@@ -200,6 +202,88 @@
 <footer class="pageFooter">
   <p>©2014 Anna <abbr>M.</abbr>, All Rights Reserved. Design by <a href="https://twitter.com/saji_">Marek ‘saji’ Augustynowicz</a>.</p>
 </footer>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYCmVzArJxhPe_agKCyaIjN79SGuqccds&sensor=false"></script>
+<script>
+  (function (document, matchMedia, forEach) {
+   var imgs;
+   if (matchMedia && matchMedia('screen and (min-width: 800px)').matches && document.querySelectorAll && forEach)
+   {
+    imgs = document.querySelectorAll('img[src^="https://maps.googleapis.com/maps/api/staticmap?"]');
+    forEach.call(imgs, function (img) {
+      var zoom, latlon;
+      var targetNode, wrapperElement, mapElement;
+      var mapStyle = [];
+      var query = img.src.substr( img.src.indexOf('?') + 1 ).split('&');
+      query.forEach(function (queryPart) {
+        var queryParts = queryPart.split('=');
+        var mapStylePart = {stylers:[]};
+        if ('zoom' === queryParts[0])
+        {
+          zoom = queryParts[1]|0;
+        }
+        else if ('center' === queryParts[0])
+        {
+          latlon = queryParts[1].split(',');
+        }
+        else if ('style' === queryParts[0])
+        {
+          unescape(queryParts[1]).split('|').forEach(function (s) {
+            var p = s.split(':');
+            var o = {};
+            if ('feature' === p[0])
+            {
+              mapStylePart.featureType = p[1];
+            }
+            else if ('element' === p[0])
+            {
+              mapStylePart.elementType = p[1];
+            }
+            else
+            {
+              if ('color' === p[0])
+              {
+                p[1] = p[1].replace('0x', '#');
+              }
+              o[ p[0] ] = p[1];
+              mapStylePart.stylers.push(o);
+            }
+          });
+          mapStyle.push( mapStylePart );
+        }
+      });
+
+      wrapperElement = document.createElement('div');
+      mapElement = document.createElement('div');
+      // TODO move to css
+      wrapperElement.style.position = 'relative';
+      wrapperElement.style.paddingBottom = (100 * img.height / img.width) + '%';
+      wrapperElement.style.height = 'auto';
+      wrapperElement.style.maxWidth = '100%';
+      wrapperElement.style.overflow = 'hidden';
+      mapElement.style.position = 'absolute';
+      mapElement.style.top  = 0;
+      mapElement.style.left = 0;
+      mapElement.style.width  = '100%';
+      mapElement.style.height = '100%';
+      wrapperElement.appendChild(mapElement);
+      targetNode = 'A' === img.parentNode.tagName ? img.parentNode : img;
+      targetNode.parentNode.replaceChild(wrapperElement, targetNode);
+
+      var map = new google.maps.Map(
+        mapElement,
+        {
+          zoom: zoom,
+          center: new google.maps.LatLng(latlon[0], latlon[1]),
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          styles: mapStyle,
+          mapTypeControl: false
+        }
+      );
+    })
+   }
+  }(document, window.matchMedia, Array.prototype.forEach));
+</script>
 
 </body>
 
