@@ -156,14 +156,14 @@ img {
   margin: 0 auto; }
 
 .pageChrome {
-  text-align: left;
-  font-size: 0.8em; }
+  text-align: left; }
 
 .pageAbout {
   max-width: 40em;
   margin: 0 auto;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  font-size: 0.8em; }
 
 .pageAbout a {
   display: block;
@@ -186,12 +186,17 @@ img {
 
 .pageMenu ul {
   list-style: none;
-  padding: 0; }
+  padding: 0;
+  margin: 0; }
 
 .pageMenu li {
   margin: 0;
   padding: 0 1em;
-  display: inline; }
+  display: inline-block;
+  text-align: center; }
+
+.pageMenu a {
+  text-decoration: none; }
 
 .pageContent {
   overflow: auto; }
@@ -243,10 +248,22 @@ img {
     margin-top: 2em; }
 
   .pageMenu {
-    text-align: inherit; }
+    text-align: inherit;
+    line-height: 1em; }
+
+  .pageMenu ul {
+    margin: 0; }
 
   .pageMenu li {
-    display: block; }
+    display: block;
+    padding: 0; }
+
+  .pageMenu a {
+    display: block;
+    padding: 0.5em 0;
+    border: #dddddd solid 0;
+    border-bottom-width: thin;
+    color: inherit; }
 
   .pageAbout {
     display: block; }

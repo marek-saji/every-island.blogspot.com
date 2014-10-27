@@ -150,7 +150,6 @@ img
 .pageChrome
 {
   text-align: left;
-  font-size: 0.8em;
 }
 
 .pageAbout
@@ -159,6 +158,7 @@ img
   margin: 0 auto;
   display: flex;
   align-items: center;
+  font-size: 0.8em;
 }
 .pageAbout a
 {
@@ -179,7 +179,7 @@ img
   display: inline-block; 
 }
 
-.pageMenu 
+.pageMenu
 {
   text-transform: uppercase;
   text-align: center;
@@ -188,12 +188,18 @@ img
 {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 .pageMenu li
 {
   margin: 0;
   padding: 0 1em;
-  display: inline;
+  display: inline-block;
+  text-align: center;
+}
+.pageMenu a
+{
+  text-decoration: none;
 }
 
 .pageContent
@@ -275,10 +281,24 @@ img
   .pageMenu
   {
     text-align: inherit;
+    line-height: 1em;
+  }
+  .pageMenu ul
+  {
+    margin: 0;
   }
   .pageMenu li
   {
     display: block;
+    padding: 0;
+  }
+  .pageMenu a
+  {
+    display: block;
+    padding: 0.5em 0;
+    border: $spacerColour solid 0;
+    border-bottom-width: thin;
+    color: inherit;
   }
   
   .pageAbout
