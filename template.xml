@@ -1522,6 +1522,85 @@ figure {
               </b:if>
             </b:includable>
           </b:widget>
+          <b:widget id='Followers1' locked='false' title='Followers' type='Followers'>
+            <b:includable id='main'>
+              <b:if cond='data:title != &quot;&quot;'>
+                <b:if cond='data:codeSnippet != &quot;&quot;'>
+                  <h2 class='title'><data:title/></h2>
+                <b:else/>
+                  <b:if cond='data:totalFollowerCount != &quot;&quot;'>
+                    <h2 class='title'><data:title/> (<data:totalFollowerCount/>)</h2>
+                  </b:if>
+                </b:if>
+              </b:if>
+              <div class='widget-content'>
+                <div expr:id='data:widget.instanceId + &quot;-wrapper&quot;'>
+                  <b:if cond='data:codeSnippet != &quot;&quot;'>
+                    <div style='margin-right:2px;'>
+                      <data:codeSnippet/>
+                    </div>
+                  <b:else/>
+                    <b:if cond='data:totalFollowerCount == &quot;&quot;'>
+                      <span class='item-control following-not-admin'>
+                        <b><data:failureSnippet/></b>
+                      </span>
+                      <span class='item-control blog-admin'>
+                        <b><data:adminFailureSnippet/></b>
+                      </span>
+                    <b:else/>
+                      <b:if cond='data:followingLinkPresent'>
+                        <div class='follow-this profile-link item-control following-follow-this'>
+                          <a expr:href='&quot;javascript:_FollowersView._openPopup(\&quot;&quot; + data:followUri + &quot;\&quot;);&quot;'>
+                            <data:followThisMessage/>
+                          </a>
+                        </div>
+                        <div class='follow-this profile-link item-control following-stop-following-this'>
+                          <a expr:href='&quot;javascript:_FollowersView._openPopup(\&quot;&quot; + data:followUri + &quot;\&quot;);&quot;'>
+                            <data:stopFollowingMessage/>
+                          </a>
+                        </div>
+                      </b:if>
+
+                      <div class='followers-grid'>
+                        <b:if cond='data:totalFollowerCount == 0'>
+                          <div class='profile-link item-control following-follow-this'>
+                            <data:emptyFollowersMessage/>
+                          </div>
+                        </b:if>
+
+                        <!--
+                        Relies on the js written out in navbar.gxp
+                        -->
+                        <b:loop values='data:followers' var='follower'>
+                          <div class='follower'>
+                            <a expr:href='data:follower.profileUrl' expr:title='data:follower.displayName' rel='nofollow'>
+                              <img class='follower-img' expr:alt='data:follower.displayName' expr:height='data:follower.imageHeight' expr:onerror='&quot;this.onerror=null;this.src=\&quot;&quot; + data:anonFollowerImageUrl + &quot;\&quot;;&quot;' expr:onload='&quot;setAttributeOnload(this, \&quot;src\&quot;, \&quot;&quot; + data:follower.imageUrl + &quot;\&quot;)&quot;' expr:width='data:follower.imageWidth' src='http://img1.blogblog.com/img/blank.gif'/>
+                            </a>
+                          </div>
+                        </b:loop>
+                        <div class='clear'/>
+                      </div>
+
+                      <div class='followers-canvas profile-link'>
+                        <data:followersFooterMessage/>
+                        <span class='item-control following-not-admin'>
+                          <a expr:href='data:followersUri'>
+                            <data:viewAllMessage/>
+                          </a>
+                        </span>
+                        <span class='item-control blog-admin'>
+                          <a expr:href='data:manageFollowersUri'>
+                            <data:manageFollowersMessage/>
+                          </a>
+                        </span>
+                      </div>
+                    </b:if>
+                  </b:if>
+                </div>
+                <b:include name='quickedit'/>
+              </div>
+            </b:includable>
+          </b:widget>
         </b:section>
       </main>
 
