@@ -203,7 +203,7 @@ img
 
 .pageContent
 {
-  overflow: auto;
+  display: inline-block;
 }
 
 .pager__list
@@ -342,6 +342,15 @@ figure
   margin: 0;
   margin-bottom: $lineHeight;
   padding: 0;
+}
+
+ul,
+ol
+{
+  @media all and (min-width: $photoWidth + toPx(4rem))
+  {
+    padding-left: 0;
+  }
 }
 
 dt

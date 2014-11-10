@@ -121,7 +121,7 @@ img {
   text-decoration: none; }
 
 .pageContent {
-  overflow: auto; }
+  display: inline-block; }
 
 .pager__list {
   list-style: none;
@@ -214,6 +214,11 @@ figure {
   margin: 0;
   margin-bottom: 1.5em;
   padding: 0; }
+
+@media all and (min-width: 864px) {
+  ul,
+  ol {
+    padding-left: 0; } }
 
 dt {
   display: inline; }
