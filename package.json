@@ -1,0 +1,28 @@
+{
+  "name": "every-island",
+  "version": "1.0.0",
+  "description": "Ania's big dream is to collect postcards from every island in the world (at least those that have a postbox).",
+  "main": "preview.html",
+  "scripts": {
+    "test": "echo 'No tests' ; false",
+    "start": "echo 'You may be interested in `npm run build` or `npm run dev`.'",
+    "build": "scss --update style/:style/ && sed --in-place '/\\/\\* CSS \\*\\//,/\\/\\* \\/CSS \\*\\// {//!d}; /\\/\\* CSS \\*\\//r style/main.css' template.xml && type xclip >/dev/null && xclip -selection clipboard -in template.xml",
+    "dev": "scss --watch style/:style/ & browser-sync start --files=\"style/*.css\" --server --index preview.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marek-saji/every-island.blogspot.com.git"
+  },
+  "keywords": [
+    "blog",
+    "template",
+    "blogger",
+    "clean"
+  ],
+  "author": "Marek ‘saji’ Augustynowicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marek-saji/every-island.blogspot.com/issues"
+  },
+  "homepage": "https://github.com/marek-saji/every-island.blogspot.com"
+}
