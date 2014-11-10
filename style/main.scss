@@ -1,13 +1,27 @@
+@function toPx ($value)
+{
+  @if ('rem' == unit($value))
+  {
+    $value: $value / 1rem;
+  }
+  @else if ('em' == unit($value))
+  {
+    $value: $value / 1em;
+  }
+
+  @return $value * $fontSize / 1em * 16px;
+}
+
 $fontSize: 1em;
 $lineHeight: 1.5em;
 $horizontalSpace: 1rem;
-$textWidth: 25em / 1em * 16px;
+$textWidth: toPx(25em);
 $photoWidth: 800px;
-$columnGap: 3 * $horizontalSpace / 1rem * 16px;
+$columnGap: toPx(3 * $horizontalSpace);
 $sidebarWidth: 256px;
 $contentWidth: $textWidth + $photoWidth;
 $fullWidth: $contentWidth + $sidebarWidth;
-$pageHorizontalSpace: $horizontalSpace / 1rem * 16px;
+$pageHorizontalSpace: toPx($horizontalSpace);
 
 $enoughSpaceForPhotoColumn: $contentWidth + 2 * $pageHorizontalSpace;
 $enoughSpaceForSidebar:     $fullWidth + 2 * $pageHorizontalSpace;
