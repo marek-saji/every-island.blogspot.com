@@ -280,9 +280,10 @@ figure {
   margin-bottom: 1.5em;
   padding: 0; }
 
-ul,
-ol {
-  padding-left: 0; }
+@media all and (min-width: 864px) {
+  ul,
+  ol {
+    padding-left: 0; } }
 
 dt {
   display: inline; }
