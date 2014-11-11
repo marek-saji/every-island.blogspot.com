@@ -97,18 +97,10 @@ img {
 .pageAbout {
   max-width: 40em;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
   font-size: 0.8em; }
 
 .pageAbout a {
   display: inline-block; }
-
-.pageAbout img {
-  width: 10em;
-  height: 10em;
-  min-width: 10em;
-  float: left; }
 
 .pageMenu {
   text-transform: uppercase;
@@ -198,14 +190,7 @@ img {
     padding: 0.5em 0;
     border: #dddddd solid 0;
     border-bottom-width: thin;
-    color: inherit; }
-
-  .pageAbout {
-    display: block;
-    margin-top: 1.5em; }
-
-  .pageAbout img {
-    float: none; } }
+    color: inherit; } }
 /* ----- */
 .h-entry {
   padding-top: 2em;
