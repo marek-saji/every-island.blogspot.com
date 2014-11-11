@@ -204,6 +204,7 @@ img
 .pageContent
 {
   display: inline-block;
+  width: 100%;
 }
 
 .pager__list
@@ -268,7 +269,7 @@ img
     max-width: none;
     width: $fullWidth;
   }
-  
+
   .pageChrome
   {
     float: right;
@@ -276,7 +277,13 @@ img
     padding-left: $columnGap;
     margin-top: $spacerMargin;
   }
-  
+
+  .pageContent
+  {
+    margin-left:  -1 * $sidebarWidth;
+    padding-left:  1 * $sidebarWidth;
+  }
+
   .pageMenu
   {
     text-align: inherit;

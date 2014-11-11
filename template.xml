@@ -186,7 +186,8 @@ img {
   text-decoration: none; }
 
 .pageContent {
-  display: inline-block; }
+  display: inline-block;
+  width: 100%; }
 
 .pager__list {
   list-style: none;
@@ -233,6 +234,10 @@ img {
     width: 256px;
     padding-left: 48px;
     margin-top: 2em; }
+
+  .pageContent {
+    margin-left: -256px;
+    padding-left: 256px; }
 
   .pageMenu {
     text-align: inherit;
