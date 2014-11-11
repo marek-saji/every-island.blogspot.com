@@ -154,6 +154,8 @@ img {
   font-size: 0.85em;
   text-align: center;
   margin-top: 3em; }
+  .pageFooter span {
+    display: inline-block; }
 
 @media all and (min-width: 1232px) {
   .pageWrapper {
