@@ -248,7 +248,13 @@ figure {
   margin-left: auto;
   margin-right: auto; }
 
+figcaption {
+  text-align: center; }
+
 @media all and (min-width: 800px) {
+  figcaption {
+    text-align: inherit; }
+
   .figures {
     display: flex; }
     .figures figure {

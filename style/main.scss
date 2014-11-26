@@ -392,8 +392,18 @@ figure
   margin-right: auto;
 }
 
+figcaption
+{
+  text-align: center;
+}
+
 @media all and (min-width: $photoWidth)
 {
+  figcaption
+  {
+    text-align: inherit;
+  }
+
   .figures
   {
     display: flex;
