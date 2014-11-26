@@ -324,7 +324,12 @@ figcaption {
     display: flex; }
     .figures figure {
       margin-right: 0;
-      padding-left: 0; } }
+      padding-left: 0; }
+      .figures figure > a {
+        display: block;
+        overflow: hidden;
+        height: 0;
+        padding-bottom: 64%; } }
 @media all and (min-width: 1232px) {
   .e-content {
     width: 400px; }

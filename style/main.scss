@@ -412,6 +412,14 @@ figcaption
     {
       margin-right: 0;
       padding-left: 0;
+
+      > a
+      {
+        display: block;
+        overflow: hidden;
+        height: 0;
+        padding-bottom: 100% / ( 500 / 320 );
+      }
     }
   }
 }
