@@ -5,9 +5,14 @@
   "main": "preview.html",
   "scripts": {
     "test": "echo 'No tests' ; false",
-    "start": "echo 'You may be interested in `npm run build` or `npm run dev`.'",
-    "build": "scss --update style/:style/ && sed --in-place '/\\/\\* CSS \\*\\//,/\\/\\* \\/CSS \\*\\// {//!d}; /\\/\\* CSS \\*\\//r style/main.css' template.xml && type xclip >/dev/null && xclip -selection clipboard -in template.xml",
-    "dev": "scss --watch style/:style/ & browser-sync start --files=\"style/*.css, *.html\" --server --index preview.html"
+    "start": "echo 'You may be interested in `npm run-script build` or `npm run-script dev`.'",
+    "styles/build": "scss --update style/:style/",
+    "styles/watch": "scss --watch style/:style/",
+    "styles/inline": "sed --in-place '/\\/\\* CSS \\*\\//,/\\/\\* \\/CSS \\*\\// {//!d}; /\\/\\* CSS \\*\\//r style/main.css' template.xml",
+    "styles": "npm run-script styles/build && npm run-script styles/inline",
+    "copy-template": "type xclip >/dev/null && xclip -selection clipboard -in template.xml",
+    "build": "npm run-script styles && npm run-script copy-template",
+    "dev": "npm run-script styles/watch & browser-sync start --files=\"style/*.css, *.html\" --server --index preview.html"
   },
   "repository": {
     "type": "git",
