@@ -1,0 +1,73 @@
+$scale: 1.125em;
+$padding: 0.75em;
+$speechArrowSize: 0.25em;
+
+.followMe__container
+{
+  text-align: center;
+}
+
+.followMe
+{
+  position: relative;
+  display: inline-block;
+  padding: $padding;
+  border-radius: 50%;
+  background-color: rgb(245, 208, 81);
+  font-size: $scale;
+
+  & > svg
+  {
+    display: block;
+    width:  1em;
+    height: 1em;
+  }
+}
+
+.followMe__label
+{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+
+  :target > &,
+  :hover  > &
+  {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: $padding / 4
+             $padding / 2;
+    overflow: visible;
+    clip: auto;
+    top:  ( 1em + $padding*3 );
+    left: ( 1em + $padding*2 ) / 2 - $speechArrowSize;
+    transform: translateX(-50%);
+    color: white;
+    background-color: black;
+    background-color: rgba(black, 0.8);
+    border-radius: 0.125em;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  &:before
+  {
+      position: absolute;
+      content: ' ';
+      display: block;
+      width: 0;
+      height: 0;
+      border: red solid thin;
+      left: 50%;
+      top: -( 2 * $speechArrowSize );
+      top: calc( #{-( 2 * $speechArrowSize )} + 1px );
+      border: transparent solid $speechArrowSize;
+      border-bottom-color: black;
+      border-bottom-color: rgba(black, 0.8);
+  }
+}

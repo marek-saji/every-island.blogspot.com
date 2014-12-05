@@ -413,6 +413,58 @@ figcaption {
   .avatar-image-container {
     margin-left: -3.5em;
     float: left; } }
+.followMe__container {
+  text-align: center; }
+
+.followMe {
+  position: relative;
+  display: inline-block;
+  padding: 0.75em;
+  border-radius: 50%;
+  background-color: #f5d051;
+  font-size: 1.125em; }
+  .followMe > svg {
+    display: block;
+    width: 1em;
+    height: 1em; }
+
+.followMe__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0); }
+  :target > .followMe__label, :hover > .followMe__label {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0.1875em 0.375em;
+    overflow: visible;
+    clip: auto;
+    top: 3.25em;
+    left: 1em;
+    transform: translateX(-50%);
+    color: white;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 0.125em;
+    text-align: center;
+    white-space: nowrap; }
+  .followMe__label:before {
+    position: absolute;
+    content: ' ';
+    display: block;
+    width: 0;
+    height: 0;
+    border: red solid thin;
+    left: 50%;
+    top: -0.5em;
+    top: calc(-0.5em + 1px );
+    border: transparent solid 0.25em;
+    border-bottom-color: black;
+    border-bottom-color: rgba(0, 0, 0, 0.8); }
 /* /CSS */
 
 
@@ -619,9 +671,47 @@ figcaption {
             >letters.from.islands<wbr/>@gmail.com</a>.
           </p>
 
-          <p>
-            You can <a href="http://www.bloglovin.com/blog/12901889"
-            >follow me on bloglovin’</a>.
+          <p class="followMe__container">
+            <a class="followMe"
+               href="https://www.facebook.com/everyisland"
+            >
+              <!-- inline:min/images/facebook.svg --> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M16.424 0c-2.056.016-4.127.24-5.855 1.57-1.994 1.81-1.162 4.256-1.472 6.89h-3.09v4.008h3.586V25.6h5.534V12.673c.96.002 2.58-.122 3.893-.2.182-1.35.455-2.69.573-4.05h-4.47c.01-1.292-.143-2.59.235-3.94 1.148-.787 2.86-.235 4.235-.417V.022c-1.018.02-2.09-.03-3.17-.02z" fill="#fff"/></svg>
+              <span class="followMe__label">
+                Follow on Facebook.
+              </span>
+            </a>
+            <a class="followMe"
+               href="https://www.bloglovin.com/blog/12901889"
+            >
+              <!-- inline:min/images/bloglovin.svg --> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g><path d="M4.188 0C1.86 0 0 1.86 0 4.188v23.625C0 30.139 1.86 32 4.188 32h23.625C30.139 32 32 30.14 32 27.812V4.188C32 1.86 30.14 0 27.812 0H4.188zM14 8h4v6h6v4h-6v6h-4v-6H8v-4h6V8z" fill="#fff"/></g></svg>
+              <span class="followMe__label">
+                Follow on bloglovin’.
+              </span>
+            </a>
+            <a class="followMe"
+               href="#followers"
+            >
+              <!-- inline:min/images/blogger.svg --> <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 56.693 56.693" height="32" viewBox="0 0 32 32" width="32"><path clip-rule="evenodd" d="M31.906 13.292l-.27-.556-.452-.352c-.59-.46-3.573.03-4.376-.697-.57-.523-.658-1.464-.83-2.736-.32-2.47-.524-2.598-.91-3.433C23.662 2.545 19.85.31 17.232 0H10.14C4.56 0 0 4.554 0 10.112v11.795C0 27.457 4.56 32 10.14 32h11.654c5.58 0 10.112-4.544 10.144-10.093l.062-8.17-.094-.445zM10.27 8.265h5.623c1.072 0 1.942.868 1.942 1.926 0 1.058-.87 1.936-1.942 1.936H10.27c-1.073 0-1.943-.878-1.943-1.935s.87-1.925 1.943-1.925zm11.426 15.42H10.27c-1.073 0-1.943-.88-1.943-1.925 0-1.06.87-1.925 1.943-1.925h11.426c1.067 0 1.932.864 1.932 1.925 0 1.044-.865 1.924-1.932 1.924z" fill-rule="evenodd" fill="#fff"/></svg>
+              <span class="followMe__label">
+                Follow on blogger.
+              </span>
+            </a>
+            <a class="followMe"
+               href="https://www.flickr.com/photos/everyisland/sets/72157648460996669/"
+            >
+              <!-- inline:min/images/flickr.svg --> <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 56.693 56.693" height="32" viewBox="0 0 32 32" width="32"><g transform="matrix(.658 0 0 .658 -2.646 -2.647)" fill="#fff"><circle cx="14.811" cy="28.347" r="10.789"/><circle cx="41.882" cy="28.347" r="10.789"/></g></svg>
+              <span class="followMe__label">
+                Follow on flickr.
+              </span>
+            </a>
+            <a class="followMe"
+               href="/feeds/posts/default"
+            >
+              <!-- inline:min/images/feed.svg --> <svg xmlns="http://www.w3.org/2000/svg" version="1" width="32" height="32" viewBox="0 0 32 32" enable-background="new 0 0 98.918 100"><g transform="matrix(.324 0 0 .32 0 21.76)" fill="#fff"><ellipse transform="translate(0 -68)" ry="13.714" rx="13.566" cy="86.286" cx="13.566"/><path d="M65.57 32H46.35C46.35 6.12 25.598-14.858 0-14.858v-19.427C36.214-34.285 65.57-4.61 65.57 32z"/><path d="M79.135 32c0-44.183-35.43-80-79.135-80v-20c54.63 0 98.918 44.772 98.918 100H79.135z"/></g></svg>
+              <span class="followMe__label">
+                Posts feed.
+              </span>
+            </a>
           </p>
         </section>
       </div>
@@ -679,6 +769,8 @@ figcaption {
               <b:if cond="data:top.showDummy">
                 <data:top.dummyBootstrap/>
               </b:if>
+              <!-- FIXME HTML added in Followers1 gets thrown away by Blogger -->
+              <a name="followers"></a>
             </b:includable>
             <b:includable id="backlinkDeleteIcon" var="backlink">
               <span expr:class="&quot;item-control &quot; + data:backlink.adminClass">

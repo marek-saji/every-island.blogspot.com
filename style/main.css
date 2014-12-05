@@ -348,3 +348,55 @@ figcaption {
   .avatar-image-container {
     margin-left: -3.5em;
     float: left; } }
+.followMe__container {
+  text-align: center; }
+
+.followMe {
+  position: relative;
+  display: inline-block;
+  padding: 0.75em;
+  border-radius: 50%;
+  background-color: #f5d051;
+  font-size: 1.125em; }
+  .followMe > svg {
+    display: block;
+    width: 1em;
+    height: 1em; }
+
+.followMe__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0); }
+  :target > .followMe__label, :hover > .followMe__label {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0.1875em 0.375em;
+    overflow: visible;
+    clip: auto;
+    top: 3.25em;
+    left: 1em;
+    transform: translateX(-50%);
+    color: white;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 0.125em;
+    text-align: center;
+    white-space: nowrap; }
+  .followMe__label:before {
+    position: absolute;
+    content: ' ';
+    display: block;
+    width: 0;
+    height: 0;
+    border: red solid thin;
+    left: 50%;
+    top: -0.5em;
+    top: calc(-0.5em + 1px );
+    border: transparent solid 0.25em;
+    border-bottom-color: black;
+    border-bottom-color: rgba(0, 0, 0, 0.8); }
