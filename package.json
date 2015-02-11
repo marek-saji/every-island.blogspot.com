@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo 'No tests' ; false",
     "start": "echo 'You may be interested in `npm run-script build` or `npm run-script dev`.'",
-    "styles/build": "scss --update style/:style/",
-    "styles/watch": "scss --watch style/:style/",
+    "styles/build": "scss --sourcemap=none --update style/:style/",
+    "styles/watch": "scss --sourcemap=none --watch style/:style/",
     "styles/inline": "sed --in-place '/\\/\\* CSS \\*\\//,/\\/\\* \\/CSS \\*\\// {//!d}; /\\/\\* CSS \\*\\//r style/main.css' template.xml",
     "styles": "npm run-script styles/build && npm run-script styles/inline",
     "svg/optimize": "for svg in images/*.svg ; do mkdir -p \"min/$( dirname \"$svg\" )\" && node_modules/.bin/svgo -i \"$svg\" -o \"min/$svg\"; done",
