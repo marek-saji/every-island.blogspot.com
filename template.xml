@@ -84,7 +84,7 @@ body {
   background-color: white; }
 
 a {
-  color: #666666; }
+  color: #666; }
 
 /* ------- */
 h1 {
@@ -255,14 +255,14 @@ img {
   .pageMenu a {
     display: block;
     padding: 0.5em 0;
-    border: #dddddd solid 0;
+    border: #ddd solid 0;
     border-bottom-width: thin;
     color: inherit; } }
 /* ----- */
 .h-entry {
   padding-top: 2em;
   margin-top: 2em;
-  border-top: #dddddd solid thin; }
+  border-top: #ddd solid thin; }
 
 .e-content {
   text-align: justify;
@@ -279,7 +279,7 @@ h6 {
 hr {
   clear: both;
   width: 100%;
-  border: #dddddd solid;
+  border: #ddd solid;
   border-width: thin 0 0 0;
   margin: 1.5em 0; }
 
@@ -380,7 +380,7 @@ figcaption {
   font-size: 0.85em; }
   .commentsWrapper ol {
     padding-left: 0.5em;
-    border-left: #dddddd solid; }
+    border-left: #ddd solid; }
 
 .comment {
   list-style: none;
@@ -461,10 +461,16 @@ figcaption {
     border: red solid thin;
     left: 50%;
     top: -0.5em;
-    top: calc(-0.5em + 1px );
+    top: calc( -0.5em + 1px );
     border: transparent solid 0.25em;
     border-bottom-color: black;
     border-bottom-color: rgba(0, 0, 0, 0.8); }
+
+/**
+ * List of regions
+ */
+.regionList {
+  list-style: none; }
 /* /CSS */
 
 
