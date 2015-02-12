@@ -1,0 +1,17 @@
+/**
+ * May be an svg or img
+ */
+.worldMap__wrapper
+{
+  font-size: 1.25em;
+  text-align: center;
+
+  @media all and (min-width: $enoughSpaceForPhotoColumn)
+  {
+    width: $textWidth + $photoWidth;
+  }
+}
+.worldMap
+{
+  width: 100%;
+}

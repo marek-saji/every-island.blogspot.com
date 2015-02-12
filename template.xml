@@ -471,6 +471,19 @@ figcaption {
  */
 .regionList {
   list-style: none; }
+
+/**
+ * May be an svg or img
+ */
+.worldMap__wrapper {
+  font-size: 1.25em;
+  text-align: center; }
+  @media all and (min-width: 1232px) {
+    .worldMap__wrapper {
+      width: 1200px; } }
+
+.worldMap {
+  width: 100%; }
 /* /CSS */
 
 
