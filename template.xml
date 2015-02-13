@@ -574,29 +574,44 @@ figcaption {
         <b:includable id="logo">
           <b:if cond="data:sourceUrl">
             <b:if cond="data:blog.url == data:blog.homepageUrl">
-              <b:include name="logoImage"/>
+              <b:include name="logoImageFull"/>
             <b:else/>
               <a expr:href="data:blog.homepageUrl">
-                <b:include name="logoImage"/>
+                <b:include name="logoImageCompact"/>
               </a>
             </b:if>
           </b:if>
         </b:includable>
-        <b:includable id="logoImage">
+        <b:includable id="logoImageFull">
           <b:if cond="data:sourceUrl">
             <b:if cond="data:imagePlacement == &quot;REPLACE&quot;">
               <img expr:alt="data:title"
                    expr:src="data:sourceUrl"
-                   expr:height="data:height"
                    expr:width="data:width"
+                   expr:height="data:height"
               />
             <b:else/>
               <img role="presentation"
                    expr:src="data:sourceUrl"
-                   expr:height="data:height"
                    expr:width="data:width"
+                   expr:height="data:height"
               />
             </b:if>
+          </b:if>
+        </b:includable>
+        <b:includable id="logoImageCompact">
+          <b:if cond="data:imagePlacement == &quot;REPLACE&quot;">
+            <img expr:alt="data:title"
+                 src="http://3.bp.blogspot.com/-0VChQboIftI/VN0zrPph8EI/AAAAAAAAIew/7_-CCPv8MJE/s1600/header-compact.png"
+                 width="1600"
+                 height="314"
+            />
+          <b:else/>
+            <img role="presentation"
+                 src="http://3.bp.blogspot.com/-0VChQboIftI/VN0zrPph8EI/AAAAAAAAIew/7_-CCPv8MJE/s1600/header-compact.png"
+                 width="1600"
+                 height="314"
+            />
           </b:if>
         </b:includable>
         <b:includable id="heading">
