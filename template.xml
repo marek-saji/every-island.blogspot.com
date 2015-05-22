@@ -1555,6 +1555,52 @@ Design by: http://redrice.io
     </b:section>
     -->
 
+    <script>
+      // <![CDATA[
+
+      function hightlightDumbTypography ()
+      {
+        var uglyRegEx = /(['"-])/g;
+        var nodesToChange = [];
+
+        Array.prototype.forEach.call(
+          document.querySelectorAll('.e-content'),
+          function (content) {
+            var walker = document.createTreeWalker(
+              content,
+              NodeFilter.SHOW_TEXT
+            );
+
+            while (walker.nextNode())
+            {
+              if (uglyRegEx.test(walker.currentNode.textContent))
+              {
+                nodesToChange.push(walker.currentNode);
+              }
+            }
+          }
+        );
+
+        nodesToChange.forEach(function (textNode) {
+          var element = document.createElement('span');
+          element.innerHTML = textNode.textContent.replace(uglyRegEx, '<span style="color: red; outline: red solid thin;">$1</span>');
+          textNode.parentNode.replaceChild(element, textNode);
+        });
+      }
+
+      if (document.querySelectorAll && Array.prototype.forEach && document.createTreeWalker && NodeFilter && NodeFilter.SHOW_TEXT)
+      {
+        setTimeout(function () {
+          if (document.querySelector('.blogger-clickTrap'))
+          {
+            hightlightDumbTypography();
+          }
+        });
+      }
+
+      // ]]>
+    </script>
+
   </body>
 </html>
 <!-- vim: shiftwidth=2 softtabstop=2 tabstop=2 ft=html
